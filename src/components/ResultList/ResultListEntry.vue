@@ -1,5 +1,5 @@
 <template>
-  <div clas='result-list__entry'>
+  <div class='result-list__entry'>
 
   </div>
 </template>

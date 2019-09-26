@@ -1,5 +1,5 @@
 <template>
-  <div clas='layout layout--main'>
+  <div class='layout layout--main'>
     <ui-header></ui-header>
     <result-list></result-list>
     <ui-footer></ui-footer>

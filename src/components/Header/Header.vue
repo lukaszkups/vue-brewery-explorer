@@ -1,8 +1,8 @@
 <template>
-  <div clas='header'>
+  <div class='header'>
     <div class='header__logo-wrapper'>
       <i class='fas fa-beer header__logo'></i>
-      <span>Brewery Explorer</span>
+      <strong class='roboto uppercase'>Brewery Explorer</strong>
     </div>
     <header-search></header-search>
   </div>
@@ -20,5 +20,14 @@ export default {
 </script>
 
 <style lang='sass'>
+.header
+  display: block
+  padding: 15px
 
+  &__logo
+    margin-right: 10px
+
+    &-wrapper
+      color: $black
+      font-size: $fontSize + 8
 </style>

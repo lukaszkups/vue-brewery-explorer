@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import searchResults from './modules/searchResults'
+import searchResults from '@/store/modules/searchResults'
 
 export default new Vuex.Store({
   modules: {

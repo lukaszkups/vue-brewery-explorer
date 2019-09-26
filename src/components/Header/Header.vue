@@ -9,14 +9,14 @@
 </template>
 
 <script>
-  import HeaderSearch from './HeaderSearch.vue'
+import HeaderSearch from './HeaderSearch.vue'
 
-  export default {
-    name: 'Header',
-    components: {
-      HeaderSearch
-    }
+export default {
+  name: 'UiHeader',
+  components: {
+    HeaderSearch
   }
+}
 </script>
 
 <style lang='sass'>

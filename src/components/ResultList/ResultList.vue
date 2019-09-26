@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'ResultList'
-  }
+export default {
+  name: 'ResultList'
+}
 </script>
 
 <style lang='sass'>

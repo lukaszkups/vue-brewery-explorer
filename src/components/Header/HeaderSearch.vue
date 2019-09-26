@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'HeaderSearch'
-  }
+export default {
+  name: 'HeaderSearch'
+}
 </script>
 
 <style lang='sass'>

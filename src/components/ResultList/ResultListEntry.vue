@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'ResultListEntry',
-    props: {
-      Entry: {
-        type: Object
-      }
+export default {
+  name: 'ResultListEntry',
+  props: {
+    Entry: {
+      type: Object
     }
   }
+}
 </script>
 
 <style lang='sass'>

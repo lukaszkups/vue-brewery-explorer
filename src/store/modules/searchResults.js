@@ -19,7 +19,7 @@ const actions = {
   },
   // payload: ''
   queryBreweryApi (context, payload) {
-    let url = 'https://api.openbrewerydb.org/breweries?sort=name&per_page=100'
+    let url = 'https://api.openbrewerydb.org/breweries?sort=name&per_page=50'
     if (payload) {
       url += `&by_name=${payload}`
       return axios.get(url).then(resp => Promise.resolve(resp)).catch(err => Promise.reject(new Error(err)))

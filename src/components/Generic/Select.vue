@@ -76,6 +76,7 @@ export default {
       this.$emit('input', newValue)
     },
     clearInputValue () {
+      this.localValue = undefined
       this.$emit('input', undefined)
     }
   },

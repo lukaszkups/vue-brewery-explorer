@@ -17,11 +17,16 @@ const actions = {
   updateFilter ({ commit }, payload) {
     commit('updateFilter', payload)
   },
-  // payload: ''
+  // payload: {name: '', state: ''}
   queryBreweryApi (context, payload) {
     let url = 'https://api.openbrewerydb.org/breweries?sort=name&per_page=50'
-    if (payload) {
-      url += `&by_name=${payload}`
+    if (payload && (payload.name || payload.state)) {
+      if (payload.name) {
+        url += `&by_name=${payload.name}`
+      }
+      if (payload.state) {
+        url += `&by_state=${payload.state}`
+      }
       return axios.get(url).then(resp => Promise.resolve(resp)).catch(err => Promise.reject(new Error(err)))
     } else {
       return Promise.resolve({ data: [] })

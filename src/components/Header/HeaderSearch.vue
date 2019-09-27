@@ -16,6 +16,7 @@
           :options='stateFilterList'
           placeholder='Filter by state'
           valueType='string'
+          :emptyPossible='true'
         ></ui-select>
       </div>
       <div class='col'>
@@ -59,7 +60,7 @@ export default {
     },
     isLoading: {
       get () {
-        return this.$store.state.isLoading
+        return this.$store.state.searchResults.isLoading
       },
       set (newVal) {
         this.$store.dispatch('searchResults/updateLoading', newVal)
@@ -67,7 +68,7 @@ export default {
     },
     searchResults: {
       get () {
-        return this.$store.state.results
+        return this.$store.state.searchResults.results
       },
       set (newVal) {
         this.$store.dispatch('searchResults/updateResults', newVal)
@@ -80,11 +81,13 @@ export default {
   methods: {
     searchAndFilter () {
       this.isLoading = true
-      this.$store.dispatch('searchResults/queryBreweryApi', this.byNameFilter).then((resp) => {
-        console.log(resp.data)
+      this.$store.dispatch('searchResults/queryBreweryApi', { name: this.byNameFilter, state: this.byStateFilter }).then((resp) => {
         this.searchResults = resp.data
         this.$store.dispatch('searchResults/updateStateList', resp.data)
-        this.isLoading = false
+        // just to simulate lag
+        setTimeout(() => {
+          this.isLoading = false
+        }, 2000)
       }).catch((err) => {
         this.isLoading = false
         throw new Error(err)

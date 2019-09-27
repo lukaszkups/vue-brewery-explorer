@@ -21,7 +21,7 @@ export default {
   z-index: 2
 
   .loader
-    color: $light-blue
+    color: $yellow--darker
     font-size: 10px
     margin: 0 auto
     width: 1em

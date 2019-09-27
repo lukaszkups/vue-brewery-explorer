@@ -19,9 +19,10 @@ export default {
   left: 0
   right: 0
   z-index: 2
+  background: rgba($black, 0.5)
 
   .loader
-    color: $yellow--darker
+    color: $yellow
     font-size: 10px
     margin: 0 auto
     width: 1em

@@ -23,6 +23,15 @@ export default {
 .header
   display: block
   padding: 15px
+  position: fixed
+  height: $headerHeight
+  top: 0
+  left: 0
+  right: 0
+  background: $yellow
+  box-sizing: border-box
+  z-index: 3
+  box-shadow: $boxShadow
 
   &__logo
     margin-right: 10px

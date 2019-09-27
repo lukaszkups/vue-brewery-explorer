@@ -49,6 +49,12 @@ export default {
   padding: 25px 20px
   border-radius: 2px
   font-family: $roboto
+  box-shadow: $boxShadow
+  transition: box-shadow 0.5s
+
+  &:hover
+    box-shadow: 0 0 0 rgba($black, 0)
+    transition: box-shadow 0.5s
 
   &-name
     font-size: $fontSize + 5
@@ -60,13 +66,17 @@ export default {
 
   &-link
     display: inline-block
-    text-decoration: none
     color: $yellow--darker
+    text-decoration: none
     float: right
+    transition: color 0.3s
 
     &:hover
-      color: $white
-      text-decoration: underline
+      color: $black
+      transition: color 0.3s
+
+      span
+        text-decoration: underline
 
     i, span
       display: inline-block

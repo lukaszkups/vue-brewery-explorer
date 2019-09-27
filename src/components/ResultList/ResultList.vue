@@ -39,7 +39,7 @@ export default {
   display: block
   width: 100%
   box-sizing: border-box
-  margin: 0
+  margin-top: $headerHeight + 20
   padding: 0 15px
 
   &__list

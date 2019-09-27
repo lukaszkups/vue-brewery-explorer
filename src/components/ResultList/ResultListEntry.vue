@@ -1,20 +1,76 @@
 <template>
-  <div class='result-list__entry'>
-
-  </div>
+  <li class='result-list__entry'>
+    <div class='row'>
+      <div class='col'>
+        <h3 class='result-list__entry-name'>{{ entry.name }}</h3>
+        <p class='result-list__entry-address'>{{ address }}</p>
+      </div>
+      <div class='col'>
+        <a
+          v-if='entry.website_url'
+          :href='entry.website_url'
+          target='_blank'
+          class='result-list__entry-link'
+        >
+          <i class='fas fa-globe-americas'></i>
+          <span>{{ entry.website_url }}</span>
+        </a>
+      </div>
+    </div>
+  </li>
 </template>
 
 <script>
 export default {
   name: 'ResultListEntry',
   props: {
-    Entry: {
+    entry: {
       type: Object
+    }
+  },
+  computed: {
+    address () {
+      if (this.entry.city && this.entry.state) {
+        return `${this.entry.city}, ${this.entry.state}`
+      } else {
+        return this.entry.city || this.entry.state
+      }
     }
   }
 }
 </script>
 
 <style lang='sass'>
+.result-list__entry
+  background: $yellow--bright
+  display: flex
+  clear: both
+  margin: 10px 0
+  padding: 25px 20px
+  border-radius: 2px
+  font-family: $roboto
 
+  &-name
+    font-size: $fontSize + 5
+    margin: 0
+    padding: 0 0 10px 0
+
+  &-address
+    font-size: $fontSize
+
+  &-link
+    display: inline-block
+    text-decoration: none
+    color: $yellow--darker
+    float: right
+
+    &:hover
+      color: $white
+      text-decoration: underline
+
+    i, span
+      display: inline-block
+
+    i
+      margin-right: 10px
 </style>

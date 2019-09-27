@@ -36,10 +36,12 @@ const actions = {
     let stateList = []
     if (payload && Array.isArray(payload)) {
       payload.map(item => {
-        stateList.push({
-          label: item.state,
-          value: item.state
-        })
+        if (item.state && !stateList.find(obj => obj.value === item.state)) {
+          stateList.push({
+            label: item.state,
+            value: item.state
+          })
+        }
       })
     }
     commit('updateStateList', stateList)

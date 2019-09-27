@@ -11,14 +11,12 @@
         >
       </div>
       <div class='col'>
-        <!-- <input type='text' class='input' placeholder='Filter by state' v-model='byStateFilter'> -->
-        <select v-model='byStateFilter'>
-          <option
-            v-for='(state, index) in stateFilterList'
-            :key='index'
-            :value='state.value'
-          >{{ state.label }}</option>
-        </select>
+        <ui-select
+          v-model='byStateFilter'
+          :options='stateFilterList'
+          placeholder='Filter by state'
+          valueType='string'
+        ></ui-select>
       </div>
       <div class='col'>
         <div class='row'>
@@ -35,8 +33,13 @@
 </template>
 
 <script>
+import UiSelect from '@/components/Generic/Select'
+
 export default {
   name: 'HeaderSearch',
+  components: {
+    UiSelect
+  },
   computed: {
     byNameFilter: {
       get () {

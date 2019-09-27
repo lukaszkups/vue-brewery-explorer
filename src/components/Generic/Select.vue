@@ -78,6 +78,14 @@ export default {
     clearInputValue () {
       this.$emit('input', undefined)
     }
+  },
+  watch: {
+    options (newVal) {
+      this.localOptions = [...newVal]
+      if (!this.localOptions.find(obj => obj.value === this.localValue)) {
+        this.localValue = null
+      }
+    }
   }
 }
 </script>
@@ -100,7 +108,8 @@ export default {
     -moz-appearance: none
     -webkit-appearance: none
     border: none
-    background: $yellow-darker
+    background: $yellow--bright
+    color: $black
     border-radius: 5px
     display: block
     flex: 3
@@ -120,7 +129,7 @@ export default {
     display: none
 
   &:hover .ui-select-clear
-    background: $yellow-darker
+    background: $yellow--bright
     border-radius: 8px
     cursor: pointer
     display: inline-block
@@ -141,7 +150,7 @@ export default {
 
     &:hover,
     &:focus
-      background: $yellow-darker
+      background: $yellow--bright
 
   option
     cursor: pointer

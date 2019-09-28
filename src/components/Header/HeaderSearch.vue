@@ -1,5 +1,5 @@
 <template>
-  <div class='header__search'>
+  <div class='header__search main-container'>
     <div class='row'>
       <div class='col'>
         <input
@@ -23,7 +23,11 @@
       <div class='col'>
         <div class='row'>
           <div class='col'>
-            <button class='button' @click='searchAndFilter'>Search</button>
+            <button
+              class='button button--search'
+              @click='searchAndFilter'
+              :disabled='!byNameFilter || !byNameFilter.length'
+            >Search</button>
           </div>
           <div class='col'>
             <button
@@ -87,8 +91,13 @@ export default {
         this.$store.dispatch('searchResults/updateProp', { propName: 'firstSearchRun', newVal: newVal })
       }
     },
-    stateFilterList () {
-      return this.$store.state.searchResults.stateList
+    stateFilterList: {
+      get () {
+        return this.$store.state.searchResults.stateList
+      },
+      set (newVal) {
+        this.$store.dispatch('searchResults/updateStateList', newVal)
+      }
     }
   },
   methods: {
@@ -117,6 +126,9 @@ export default {
     resetSearch () {
       this.firstSearchRun = true
       this.searchResults = []
+      this.stateFilterList = []
+      this.byNameFilter = null
+      this.byStateFilter = null
     }
   }
 }
@@ -135,9 +147,10 @@ export default {
     box-sizing: border-box
     border-radius: 5px
 
-  .button.button--reset
-    background-color: $green
+  .button.button--search
+    background: $green
+    color: $white
 
     &:hover
-      background-color: $green--bright !important
+      background: $green--darker !important
 </style>

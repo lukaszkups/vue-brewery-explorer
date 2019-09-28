@@ -1,11 +1,11 @@
 <template>
   <div class='result-list'>
     <ul
-      v-if='results && results.length'
-      class='result-list__list'
+      v-if='filteredResults && filteredResults.length'
+      class='result-list__list main-container'
     >
       <result-list-entry
-        v-for='entry in results'
+        v-for='entry in filteredResults'
         :key='entry.id'
         :entry='entry'
       ></result-list-entry>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import ResultListEntry from '@/components/ResultList/ResultListEntry'
 
 export default {
@@ -23,9 +22,9 @@ export default {
     ResultListEntry
   },
   computed: {
-    ...mapState({
-      results: (state) => state.searchResults.results
-    })
+    filteredResults () {
+      return this.$store.getters['searchResults/getFilteredResults']
+    }
   }
 }
 </script>

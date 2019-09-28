@@ -1,6 +1,6 @@
 <template>
   <div class='footer'>
-    <div class='row'>
+    <div class='row main-container'>
       <div class='col'>
         <div
           v-if='totalResults && totalResults > 0'

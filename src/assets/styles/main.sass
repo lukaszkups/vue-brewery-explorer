@@ -1,3 +1,4 @@
+@import '@/assets/styles/_rwd.sass'
 @import '@/assets/styles/_variables.sass'
 @import '@/assets/styles/_grid.sass'
 
@@ -8,6 +9,12 @@ body
   overflow-x: hidden
   overflow-y: auto
   background: $yellow
+
+  .main-container
+    max-width: 1200px
+    min-width: 310px
+    width: 100%
+    margin: 0 auto
 
   .input
     border: 1px solid $black
@@ -35,3 +42,8 @@ body
       background: $yellow--darker
       cursor: pointer
       color: $white
+
+      &:disabled
+        cursor: not-allowed
+        background: $yellow--bright
+        color: $black

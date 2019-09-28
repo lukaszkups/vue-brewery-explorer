@@ -84,6 +84,13 @@ const mutations = {
 const getters = {
   getTotalResultsCount (state) {
     return state.results && Array.isArray(state.results) ? state.results.length : 0
+  },
+  getFilteredResults (state) {
+    if (state.stateFilter) {
+      return state.results.filter(obj => obj.state === state.stateFilter)
+    } else {
+      return state.results
+    }
   }
 }
 

@@ -1,0 +1,43 @@
+@import '@/assets/styles/_variables.sass'
+
+@media (max-width: 785px)
+  .footer
+    .row
+      flex-wrap: wrap
+      .col:nth-of-type(1),
+      .col:nth-of-type(3)
+        order: 1
+      .col:nth-of-type(2)
+        order: 3
+        min-width: 100%
+
+@media (max-width: 600px)
+  .result-list__entry-link
+    font-size: $fontSize
+
+@media (max-width: 430px)
+  .footer
+    font-size: $fontSize !important
+    line-height: 50px
+  .result-list__entry
+    .row
+      flex-wrap: wrap
+      .col
+        .result-list__entry-name
+          padding: 0
+        &:last-of-type
+          min-width: 100%
+          .result-list__entry-link
+            float: left
+  .header__search
+    .row
+      flex-wrap: wrap
+      .col
+        min-width: 50%
+        &:nth-of-type(3),
+        &:nth-of-type(4)
+          margin-top: 10px
+  .header
+    height: 140px
+  .result-list
+    margin-top: 140px

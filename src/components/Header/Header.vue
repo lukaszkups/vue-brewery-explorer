@@ -1,6 +1,6 @@
 <template>
   <div class='header'>
-    <div class='header__logo-wrapper'>
+    <div class='header__logo-wrapper main-container'>
       <i class='fas fa-beer header__logo'></i>
       <strong class='roboto uppercase'>Brewery Explorer</strong>
     </div>

@@ -6,6 +6,7 @@
       v-model='localValue'
       @input='updateSelectValue'
       class='ui-select__input'
+      :disabled='disabled'
     >
       <option
         class='ui-select__option'
@@ -53,6 +54,9 @@ export default {
     emptyPossible: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean
     }
   },
   data () {
@@ -115,6 +119,14 @@ export default {
     display: block
     flex: 3
     padding: 5px
+    height: 30px
+    max-width: 90%
+
+    &:hover
+      cursor: pointer
+
+    &:disabled
+      cursor: not-allowed
 
   .ui-select-arrow
     display: inline-block
@@ -124,7 +136,7 @@ export default {
     border-width: 5px 5px 0 5px
     border-color: $black transparent transparent transparent
     position: absolute
-    right: 10px
+    right: calc(10px + 10%)
 
   .ui-select-clear
     display: none
@@ -138,7 +150,7 @@ export default {
     height: 16px
     overflow: hidden
     position: absolute
-    right: 10px
+    right: calc(7px + 10%)
 
     &:before
       color: $black

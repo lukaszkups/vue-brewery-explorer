@@ -5,7 +5,6 @@ body
   margin: 0
   padding: 0
   width: 100%
-  min-height: 100vh
   overflow-x: hidden
   overflow-y: auto
   background: $yellow
@@ -14,9 +13,25 @@ body
     border: 1px solid $black
     box-shadow: none
     width: 90%
+    height: 30px
 
   .roboto
     font-family: $roboto
 
   .uppercase
     text-transform: uppercase
+
+  .button
+    padding: 8px
+    border: none
+    border-radius: 7px
+    font-size: $fontSize
+    background: $yellow--bright
+    color: $black
+    max-height: 30px
+    width: 90%
+
+    &:hover
+      background: $yellow--darker
+      cursor: pointer
+      color: $white

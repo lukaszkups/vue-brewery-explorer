@@ -1,6 +1,5 @@
 <template>
   <div class='result-list'>
-    <loader v-if='isLoading'></loader>
     <ul
       v-if='results && results.length'
       class='result-list__list'
@@ -16,18 +15,15 @@
 
 <script>
 import { mapState } from 'vuex'
-import Loader from '@/components/Generic/Loader'
 import ResultListEntry from '@/components/ResultList/ResultListEntry'
 
 export default {
   name: 'ResultList',
   components: {
-    Loader,
     ResultListEntry
   },
   computed: {
     ...mapState({
-      isLoading: (state) => state.searchResults.isLoading,
       results: (state) => state.searchResults.results
     })
   }
@@ -39,8 +35,10 @@ export default {
   display: block
   width: 100%
   box-sizing: border-box
-  margin-top: $headerHeight + 20
-  padding: 0 15px
+  margin-top: $headerHeight
+  padding: 20px 15px
+  // interpolate with #{}
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeight})
 
   &__list
     padding: 0

@@ -5,10 +5,15 @@ const state = {
   nameFilter: '',
   stateFilter: '',
   isLoading: false,
-  stateList: []
+  stateList: [],
+  firstSearchRun: true
 }
 
 const actions = {
+  // payload: {propName: '', newVal: ''}
+  updateProp ({ commit }, payload) {
+    commit('updateProp', payload)
+  },
   // payload: []
   updateResults ({ commit }, payload) {
     commit('updateResults', payload)
@@ -54,6 +59,9 @@ const actions = {
 }
 
 const mutations = {
+  updateProp (state, payload) {
+    state[payload.propName] = payload.newVal
+  },
   updateResults (state, payload) {
     state.results = payload
   },
@@ -73,9 +81,16 @@ const mutations = {
   }
 }
 
+const getters = {
+  getTotalResultsCount (state) {
+    return state.results && Array.isArray(state.results) ? state.results.length : 0
+  }
+}
+
 export default {
   namespaced: true,
   state,
   actions,
-  mutations
+  mutations,
+  getters
 }

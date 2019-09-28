@@ -17,6 +17,7 @@
           placeholder='Filter by state'
           valueType='string'
           :emptyPossible='true'
+          :disabled='stateFilterList.length === 0'
         ></ui-select>
       </div>
       <div class='col'>
@@ -25,7 +26,11 @@
             <button class='button' @click='searchAndFilter'>Search</button>
           </div>
           <div class='col'>
-            <button class='button'>Reset</button>
+            <button
+              v-if='!firstSearchRun'
+              class='button button--reset'
+              @click='resetSearch'
+            >Reset</button>
           </div>
         </div>
       </div>
@@ -74,6 +79,14 @@ export default {
         this.$store.dispatch('searchResults/updateResults', newVal)
       }
     },
+    firstSearchRun: {
+      get () {
+        return this.$store.state.searchResults.firstSearchRun
+      },
+      set (newVal) {
+        this.$store.dispatch('searchResults/updateProp', { propName: 'firstSearchRun', newVal: newVal })
+      }
+    },
     stateFilterList () {
       return this.$store.state.searchResults.stateList
     }
@@ -81,6 +94,7 @@ export default {
   methods: {
     searchAndFilter () {
       this.isLoading = true
+      this.firstSearchRun = false
       this.$store.dispatch('searchResults/queryBreweryApi', { name: this.byNameFilter }).then((resp) => {
         // wrapped in setTimeout just to simulate server lag
         setTimeout(() => {
@@ -99,6 +113,10 @@ export default {
       if (!pattern.test(value)) {
         e.preventDefault()
       }
+    },
+    resetSearch () {
+      this.firstSearchRun = true
+      this.searchResults = []
     }
   }
 }
@@ -107,7 +125,7 @@ export default {
 <style lang='sass'>
 .header__search
   box-sizing: border-box
-  padding: 15px
+  padding: 15px 0
 
   .input
     border: none
@@ -116,4 +134,10 @@ export default {
     padding: 5px 10px
     box-sizing: border-box
     border-radius: 5px
+
+  .button.button--reset
+    background-color: $green
+
+    &:hover
+      background-color: $green--bright !important
 </style>

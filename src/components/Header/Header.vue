@@ -30,7 +30,7 @@ export default {
   right: 0
   background: $yellow
   box-sizing: border-box
-  z-index: 3
+  z-index: 2
   box-shadow: $boxShadow
 
   &__logo

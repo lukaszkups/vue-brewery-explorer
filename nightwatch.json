@@ -1,0 +1,24 @@
+{
+  "src_folders" : ["tests"],
+  "output_folder" : "logs",
+  "selenium" : {
+    "start_process" : true,
+    "log_path" : "logs",
+    "port" : 4444
+  },
+  "test_settings": {
+    "chrome": {
+      "desiredCapabilities": {
+        "chromeOptions": {
+          "args": [
+            "--headless",
+            "--no-sandbox",
+            "--disable-gpu",
+            "start-fullscreen"
+          ],
+          "binary": "node_modules/chromedriver"
+        }
+      }
+    }
+  }
+}

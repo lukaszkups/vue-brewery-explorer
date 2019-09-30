@@ -6,6 +6,7 @@
           type='text'
           class='input'
           placeholder='Filter by name'
+          name='byNameFilter'
           v-model='byNameFilter'
           @keypress='valdidateNameFilter'
         >
@@ -15,6 +16,7 @@
           v-model='byStateFilter'
           :options='stateFilterList'
           placeholder='Filter by state'
+          name='byStateFilter'
           valueType='string'
           :emptyPossible='true'
           :disabled='stateFilterList.length === 0'

@@ -108,11 +108,14 @@ export default {
       this.firstSearchRun = false
       this.$store.dispatch('searchResults/queryBreweryApi', { name: this.byNameFilter }).then((resp) => {
         // wrapped in setTimeout just to simulate server lag
-        setTimeout(() => {
-          this.searchResults = resp.data
-          this.$store.dispatch('searchResults/updateStateList', resp.data)
-          this.isLoading = false
-        }, 2000)
+        // setTimeout(() => {
+        //   this.searchResults = resp.data
+        //   this.$store.dispatch('searchResults/updateStateList', resp.data)
+        //   this.isLoading = false
+        // }, 2000)
+        this.searchResults = resp.data
+        this.$store.dispatch('searchResults/updateStateList', resp.data)
+        this.isLoading = false
       }).catch((err) => {
         this.isLoading = false
         throw new Error(err)

@@ -7,6 +7,7 @@
       @input='updateSelectValue'
       class='ui-select__input'
       :disabled='disabled'
+      :name='name'
     >
       <option
         class='ui-select__option'
@@ -57,6 +58,9 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    name: {
+      type: String
     }
   },
   data () {

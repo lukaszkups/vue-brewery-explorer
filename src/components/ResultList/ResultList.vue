@@ -10,6 +10,7 @@
         :entry='entry'
       ></result-list-entry>
     </ul>
+    <div v-else-if='!firstSearchRun' class='result-list__no-results'>No results</div>
   </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
   computed: {
     filteredResults () {
       return this.$store.getters['searchResults/getFilteredResults']
+    },
+    firstSearchRun () {
+      return this.$store.state.searchResults.firstSearchRun
     }
   }
 }
@@ -44,4 +48,9 @@ export default {
     margin: 0
     list-style-type: none
     display: block
+
+  &__no-results
+    font-family: $roboto
+    text-align: center
+    font-size: $fontSize
 </style>

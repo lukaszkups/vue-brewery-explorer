@@ -27,6 +27,5 @@ npm run lint
 
 ### Run your end-to-end tests
 ```
-npm run test:e2e
 npm run cypress:run
 ```
